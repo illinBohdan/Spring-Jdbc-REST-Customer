@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS customers (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    first_name VARCHAR(255) NOT NULL,
+    phone TEXT NOT NULL,
+    address VARCHAR(255) NOT NULL
+);
+
+
+
+SELECT * FROM customers;

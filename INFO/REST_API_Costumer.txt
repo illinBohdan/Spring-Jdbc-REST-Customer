@@ -1,0 +1,132 @@
+
+REST API Customer
+---------------------
+
+Postman для тесту REST API
+https://www.postman.com/
+
+Для здійснення кожного запиту, натискаємо Send .
+Якщо REST-запит має тіло, необхідно налаштування
+в Postman: Body > raw > JSON.
+
+
+(1) Отримання даних
+
+GET
+http://localhost:8080/Spring-Jdbc-REST-Customer-1.0-SNAPSHOT/api/v1/costumers
+
+Даних, поки, немає.
+
+
+(2) Створення даних
+
+POST
+http://localhost:8080/Spring-Jdbc-REST-Customer-1.0-SNAPSHOT/api/v1/costumers
+
+Виконуємо окремі запити
+
+
+{
+    "firstName": "John",
+    "phone": "11111",
+    "address": "john@mail.com"
+}
+
+{
+    "firstName": "Bob",
+    "phone": "2222222",
+    "address": "bob@mail.com"
+}
+
+{
+    "firstName": "Alice",
+    "phone": "333333",
+    "address": "alice@mail.com"
+}
+
+{
+    "firstName": "Tom",
+    "phone": "444444",
+    "address": "tom@mail.com"
+}
+
+{
+    "firstName": "Lucy",
+    "phone": "55555555",
+    "address": "lucy@mail.com"
+}
+
+{
+    "firstName": "David",
+    "phone": "6666666",
+    "address": "d.terra@mail.com"
+}
+
+{
+    "firstName": "Mary",
+    "phone": "888888",
+    "address": "m.waters@mail.com"
+}
+
+{
+    "firstName": "Alice",
+    "phone": "9999999",
+    "address": "a.bri@mail.com"
+}
+
+Перевіремо через БД.
+
+
+(3) Отримання всіх даних
+
+GET
+http://localhost:8080/Spring-Jdbc-REST-Customer-1.0-SNAPSHOT/api/v1/costumers
+
+
+(4) Отримання даних за id
+
+GET
+http://localhost:8080/Spring-Jdbc-REST-Customer-1.0-SNAPSHOT/api/v1/costumers/2
+
+Також, за неіснуючим id
+
+GET
+http://localhost:8080/Spring-Jdbc-REST-Customer-1.0-SNAPSHOT/api/v1/costumers/17
+
+
+(5) Отримання останього запису в таблиці
+
+GET
+http://localhost:8080/Spring-Jdbc-REST-Customer-1.0-SNAPSHOT/api/v1/costumers/last-entity
+
+
+(6) Отримання даних за Query Params тут
+src/main/java/org/example/app/controller/CostumerController.java
+
+
+(7) Оновлення даних за id
+
+PUT
+http://localhost:8080/Spring-Jdbc-REST-Customer-1.0-SNAPSHOT/api/v1/costumers/3
+
+{
+    "firstName": "Alice",
+    "phone": "00000000",
+    "address": "sunny@mail.com"
+}
+
+Перевіремо через БД та REST-запит за відповідним id.
+
+Також, спробуємо оновити за неіснуючим id.
+
+
+(8) Видалення даних за id
+
+DELETE
+http://localhost:8080/Spring-Jdbc-REST-Customer-1.0-SNAPSHOT/api/v1/costumers/4
+
+Перевіремо через БД, REST-запити отримання всіх даних
+та за відповідним id.
+
+Також, спробуємо повторно видалити та тим самим id, та за неіснуючим id.
+
